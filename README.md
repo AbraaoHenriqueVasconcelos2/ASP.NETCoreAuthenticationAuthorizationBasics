@@ -1,3 +1,3 @@
 # ASP.NETCoreAuthenticationAuthorizationBasics
 
-the mechanism behind Authorization (Custom Policies Part 1)
+The mechanism behind Authorization (Custom Policies Part 1)
