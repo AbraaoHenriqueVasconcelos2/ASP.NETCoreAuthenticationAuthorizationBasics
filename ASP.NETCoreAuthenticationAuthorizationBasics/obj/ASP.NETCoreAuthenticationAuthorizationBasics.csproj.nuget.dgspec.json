@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\temp\\Apagar\\ASP.NETCoreAuthenticationAuthorizationBasics-Parte2\\ASP.NETCoreAuthenticationAuthorizationBasics\\ASP.NETCoreAuthenticationAuthorizationBasics.csproj": {}
+    "C:\\temp\\Apagar\\ASP.NETCoreAuthenticationAuthorizationBasics-Parte3\\ASP.NETCoreAuthenticationAuthorizationBasics\\ASP.NETCoreAuthenticationAuthorizationBasics.csproj": {}
   },
   "projects": {
-    "C:\\temp\\Apagar\\ASP.NETCoreAuthenticationAuthorizationBasics-Parte2\\ASP.NETCoreAuthenticationAuthorizationBasics\\ASP.NETCoreAuthenticationAuthorizationBasics.csproj": {
+    "C:\\temp\\Apagar\\ASP.NETCoreAuthenticationAuthorizationBasics-Parte3\\ASP.NETCoreAuthenticationAuthorizationBasics\\ASP.NETCoreAuthenticationAuthorizationBasics.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\temp\\Apagar\\ASP.NETCoreAuthenticationAuthorizationBasics-Parte2\\ASP.NETCoreAuthenticationAuthorizationBasics\\ASP.NETCoreAuthenticationAuthorizationBasics.csproj",
+        "projectUniqueName": "C:\\temp\\Apagar\\ASP.NETCoreAuthenticationAuthorizationBasics-Parte3\\ASP.NETCoreAuthenticationAuthorizationBasics\\ASP.NETCoreAuthenticationAuthorizationBasics.csproj",
         "projectName": "ASP.NETCoreAuthenticationAuthorizationBasics",
-        "projectPath": "C:\\temp\\Apagar\\ASP.NETCoreAuthenticationAuthorizationBasics-Parte2\\ASP.NETCoreAuthenticationAuthorizationBasics\\ASP.NETCoreAuthenticationAuthorizationBasics.csproj",
+        "projectPath": "C:\\temp\\Apagar\\ASP.NETCoreAuthenticationAuthorizationBasics-Parte3\\ASP.NETCoreAuthenticationAuthorizationBasics\\ASP.NETCoreAuthenticationAuthorizationBasics.csproj",
         "packagesPath": "C:\\Users\\DRM\\.nuget\\packages\\",
-        "outputPath": "C:\\temp\\Apagar\\ASP.NETCoreAuthenticationAuthorizationBasics-Parte2\\ASP.NETCoreAuthenticationAuthorizationBasics\\obj\\",
+        "outputPath": "C:\\temp\\Apagar\\ASP.NETCoreAuthenticationAuthorizationBasics-Parte3\\ASP.NETCoreAuthenticationAuthorizationBasics\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

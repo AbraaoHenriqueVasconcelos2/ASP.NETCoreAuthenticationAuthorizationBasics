@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,17 +11,6 @@ namespace DemoAuthenticationClaims01.Controllers
 {
     public class HomeController : Controller
     {
-
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
-
-        public HomeController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager )
-        {
-            _userManager = userManager;
-            _signInManager = signInManager;
-        }
-
-
         public IActionResult Index()
         {
             return View();
@@ -34,57 +22,30 @@ namespace DemoAuthenticationClaims01.Controllers
             return View();
         }
 
-
-        [HttpPost]
-        public async Task<IActionResult> Login( string username, string password)
+        public IActionResult Authenticate()
         {
-
-            var user = await _userManager.FindByNameAsync(username);
-
-            if(user != null)
+            var myClaims1 = new List<Claim>()
             {
-                var signInResult = await _signInManager.PasswordSignInAsync(user, password, false, false);
+                   new Claim(ClaimTypes.Name, "Maria"),
+                   new Claim(ClaimTypes.Email, "maria@email.com")
 
-                if(signInResult.Succeeded)
-                {
-                    return RedirectToAction("Index");
-                }
-            }
-
-            return RedirectToAction("Login");
-        }
-
-
-        [HttpPost]
-        public async Task<IActionResult> Register(string username, string password)
-        {
-            var user = new IdentityUser
-            {
-                UserName = username,
-                Email = ""
             };
 
-            var result = await _userManager.CreateAsync(user, password);
-
-            if(result.Succeeded)
+            var myClaims2 = new List<Claim>()
             {
-                var signInResult = await _signInManager.PasswordSignInAsync(user, password, false, false);
+                   new Claim(ClaimTypes.Name, "Joao"),
+                   new Claim(ClaimTypes.Email, "joao@email.com")
 
-                if (signInResult.Succeeded)
-                {
-                    return RedirectToAction("Index");
-                }
-            }
+            };
 
-            return RedirectToAction("Login ");
-        }
+            var myIdentity1 = new ClaimsIdentity(myClaims1, "My Identity 1");
+            var myIdentity2 = new ClaimsIdentity(myClaims2, "My Identity 2");
 
+            var userPrincipal = new ClaimsPrincipal(new[] { myIdentity1, myIdentity2 });
 
+            HttpContext.SignInAsync(userPrincipal);
 
-        public async Task<IActionResult> LogOut()
-        {
-            await _signInManager.SignOutAsync();
-            return RedirectToAction("Login");
+            return RedirectToAction("Index");
         }
 
     }

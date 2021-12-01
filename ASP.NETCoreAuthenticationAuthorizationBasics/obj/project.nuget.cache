@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uR7NRfIufXKm2NhtS3dgVAHmxgmm7ppFs7+0J3AR4Ibf/m/ZjhzCIZOzVz24neECFOQtefLR8rZ1ycjGPk6oMg==",
+  "dgSpecHash": "lcrcGL7oeVeae6arufcs2/sGAKZKTAj5Uw0iKNEKlR3XyhTjYb8KGTrcsagMSsaCu/QPnIUN5whF2lx6UfvsBQ==",
   "success": true,
-  "projectFilePath": "C:\\temp\\Apagar\\ASP.NETCoreAuthenticationAuthorizationBasics-Parte2\\ASP.NETCoreAuthenticationAuthorizationBasics\\ASP.NETCoreAuthenticationAuthorizationBasics.csproj",
+  "projectFilePath": "C:\\temp\\Apagar\\ASP.NETCoreAuthenticationAuthorizationBasics-Parte3\\ASP.NETCoreAuthenticationAuthorizationBasics\\ASP.NETCoreAuthenticationAuthorizationBasics.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DRM\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.11\\microsoft.aspnetcore.cryptography.internal.5.0.11.nupkg.sha512",
     "C:\\Users\\DRM\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.11\\microsoft.aspnetcore.cryptography.keyderivation.5.0.11.nupkg.sha512",

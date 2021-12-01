@@ -1,4 +1,5 @@
-using ASP.NETCoreAuthenticationAuthorizationBasics.Data;
+
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace ASP.NETCoreAuthenticationAuthorizationBasics
@@ -19,39 +21,26 @@ namespace ASP.NETCoreAuthenticationAuthorizationBasics
 
         {
 
-            services.AddDbContext<AppDbContext>( config =>
-            {
-                config.UseInMemoryDatabase("Memory");
-            });
-
-
-            //AddIdentity registers the services
-            services.AddIdentity<IdentityUser, IdentityRole>(config=> {
-                config.Password.RequiredLength = 4;
-                config.Password.RequireDigit = false;
-                config.Password.RequireNonAlphanumeric = false;
-                config.Password.RequireUppercase = false;
-                config.SignIn.RequireConfirmedEmail = true;
-            })
-                .AddEntityFrameworkStores<AppDbContext>()
-                .AddDefaultTokenProviders();
-
-
-            //this configuration allows you to do configure the cookie add identity
-            services.ConfigureApplicationCookie(config =>
-            {
-                config.Cookie.Name = "MyCookie";
-                config.LoginPath = "/Home/Login";
-            });
-
 
             //Configure the cookie without identity
-            //services.AddAuthentication("CookieAuth")
-            //    .AddCookie("CookieAuth", config =>
-            //    {
-            //        config.Cookie.Name = "MyCookie";
-            //        config.LoginPath = "/Home/Authenticate";
-            //    });
+            services.AddAuthentication("CookieAuth")
+                .AddCookie("CookieAuth", config =>
+                {
+                    config.Cookie.Name = "MyCookie";
+                    config.LoginPath = "/Home/Authenticate";
+                });
+
+
+            //services.AddAuthorization(config =>
+            //{
+            //    var defaultAuthBuilder = new AuthorizationPolicyBuilder();
+            //    var defaultAuthPolicy = defaultAuthBuilder
+            //            .RequireAuthenticatedUser()
+            //            .RequireClaim(ClaimTypes.DateOfBirth)
+            //            .Build();
+
+            //    config.DefaultPolicy = defaultAuthPolicy;
+            //});
 
             services.AddControllersWithViews();
         }
