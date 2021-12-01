@@ -1,3 +1,3 @@
 # ASP.NETCoreAuthenticationAuthorizationBasics
 
-A simple example of authentication using identity package (Microsoft.AspNetCore.Identity)
+the mechanism behind Authorization (Custom Policies Part 1)
