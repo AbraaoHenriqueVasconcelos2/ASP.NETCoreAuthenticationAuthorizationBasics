@@ -22,13 +22,29 @@ namespace DemoAuthenticationClaims01.Controllers
             return View();
         }
 
+        [Authorize(Policy = "Claim.DateOfBirth.Policy")]
+        public IActionResult SecretPolicy()
+        {
+            return View("Secret");
+        }
+
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult SecretRole()
+        {
+            return View("Secret");
+        }
+
+
+
         public IActionResult Authenticate()
         {
             var myClaims1 = new List<Claim>()
             {
                    new Claim(ClaimTypes.Name, "Maria"),
-                   new Claim(ClaimTypes.Email, "maria@email.com")
-
+                   new Claim(ClaimTypes.Email, "maria@email.com"),
+                   new Claim(ClaimTypes.DateOfBirth, "11/11/2000"),
+                   new Claim(ClaimTypes.Role, "Admin")
             };
 
             var myClaims2 = new List<Claim>()

@@ -1,4 +1,5 @@
 
+using ASP.NETCoreAuthenticationAuthorizationBasics.AuthorizationRequirements;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,16 +32,24 @@ namespace ASP.NETCoreAuthenticationAuthorizationBasics
                 });
 
 
-            //services.AddAuthorization(config =>
-            //{
-            //    var defaultAuthBuilder = new AuthorizationPolicyBuilder();
-            //    var defaultAuthPolicy = defaultAuthBuilder
-            //            .RequireAuthenticatedUser()
-            //            .RequireClaim(ClaimTypes.DateOfBirth)
-            //            .Build();
+            services.AddAuthorization(config =>
+            {
+                //    var defaultAuthBuilder = new AuthorizationPolicyBuilder();
+                //    var defaultAuthPolicy = defaultAuthBuilder
+                //            .RequireAuthenticatedUser()
+                //            .RequireClaim(ClaimTypes.DateOfBirth)
+                //            .Build();
 
-            //    config.DefaultPolicy = defaultAuthPolicy;
-            //});
+                //    config.DefaultPolicy = defaultAuthPolicy;
+
+                config.AddPolicy("Claim.DateOfBirth.Policy", policyBuilder =>
+                {
+                    //policyBuilder.AddRequirements(new CustomRequireClaim(ClaimTypes.DateOfBirth));
+                    policyBuilder.RequireCustomClaim(ClaimTypes.DateOfBirth);
+                });
+            });
+
+            services.AddScoped<IAuthorizationHandler, CustomRequireClaimHandler>();
 
             services.AddControllersWithViews();
         }
